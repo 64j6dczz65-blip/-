@@ -30,6 +30,7 @@
   #mapdim{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(150% 130% at 50% 42%,transparent 62%,rgba(40,32,20,.05))}
   #skywash{position:fixed;inset:0;z-index:3;pointer-events:none;transition:background .25s,opacity .25s}
 
+  /* 上部バー（スリム） */
   .topbar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 14px 14px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.15) 62%,transparent)}
   .brand{pointer-events:auto}
   .brand .logo{font-family:"Shippori Mincho",serif;font-weight:800;font-size:19px;letter-spacing:.12em;color:#2c2720;line-height:1;display:flex;align-items:center;gap:7px;text-shadow:0 1px 3px rgba(255,255,255,.7)}
@@ -40,7 +41,10 @@
   .clock .phase{display:flex;align-items:center;justify-content:flex-end;gap:4px;margin-top:3px;font-size:9.5px;letter-spacing:.05em;color:var(--shikkui-dim);font-weight:600}
   .iconbtn{width:38px;height:38px;border-radius:11px;border:1px solid var(--panel-line);background:var(--panel);color:var(--shikkui);font-size:16px;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 8px 22px -14px rgba(0,0,0,.7);display:grid;place-items:center}
   .iconbtn:hover{border-color:var(--kin)}
+  .sendpill{border:1px solid var(--panel-line);background:var(--panel);color:var(--shikkui);font-weight:800;font-size:11px;letter-spacing:.02em;padding:8px 10px;border-radius:11px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 8px 22px -14px rgba(0,0,0,.7);display:flex;align-items:center;gap:4px;white-space:nowrap}
+  .sendpill b{color:var(--green);font-family:"Shippori Mincho",serif}
 
+  /* 検索行 */
   .searchrow{position:fixed;top:calc(56px + env(safe-area-inset-top));left:12px;right:12px;z-index:19;display:flex;gap:7px;align-items:center}
   .seg{display:flex;background:var(--panel);border:1px solid var(--panel-line);border-radius:999px;padding:2px;gap:2px;box-shadow:0 8px 22px -14px rgba(0,0,0,.6)}
   .seg button{border:none;background:transparent;color:var(--shikkui-dim);font-family:inherit;font-weight:700;font-size:11px;letter-spacing:.03em;padding:6px 10px;border-radius:999px;cursor:pointer;transition:.16s;display:flex;align-items:center;gap:4px}
@@ -52,18 +56,169 @@
   .searchbox .sclear{font-size:11px;color:var(--shikkui-dim);cursor:pointer;display:none;flex:none}
   .searchbox.filled .sclear{display:block}
 
+  /* カテゴリチップ */
   .catbar{position:fixed;top:calc(98px + env(safe-area-inset-top));left:0;right:0;z-index:18;display:flex;gap:7px;padding:0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .catbar::-webkit-scrollbar{display:none}
   .catbar .cchip{flex:none;display:flex;align-items:center;gap:5px;background:var(--panel);border:1px solid var(--panel-line);color:var(--shikkui-dim);font-family:inherit;font-weight:700;font-size:12px;letter-spacing:.02em;padding:8px 13px;border-radius:999px;cursor:pointer;transition:.16s;box-shadow:0 8px 22px -16px rgba(0,0,0,.6)}
   .catbar .cchip.on{background:#2c2720;color:#fff;border-color:#2c2720}
 
+  /* おすすめバー（dock内・タップで詳細） */
+  .recopill{width:100%;display:flex;align-items:center;gap:8px;background:var(--panel-2);border:1px solid var(--panel-line);border-left:3px solid var(--kin);border-radius:12px;padding:10px 14px;margin-bottom:10px;box-shadow:0 8px 22px -16px rgba(0,0,0,.6);cursor:pointer;font-family:inherit}
+  .recopill .rp-eye{font-size:9.5px;letter-spacing:.12em;color:var(--kin-soft);font-weight:800;flex:none}
+  .recopill .rp-name{flex:1;text-align:left;font-family:"Shippori Mincho",serif;font-weight:700;font-size:15px;color:var(--shikkui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .recopill .rp-arrow{color:var(--kin-soft);font-weight:800;flex:none}
+
+  /* dock 季節行 */
+  .dock .seasonrow{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+  .dock .seasonrow .dl{font-size:10px;letter-spacing:.16em;color:var(--shikkui-dim);font-weight:800;flex:none}
+
+  /* 凡例ボタン＋ポップ */
+  .legendbtn{position:fixed;right:12px;bottom:calc(198px + env(safe-area-inset-bottom));z-index:16;width:34px;height:34px;border-radius:50%;border:1px solid var(--panel-line);background:var(--panel);color:var(--shikkui);font-weight:800;font-size:14px;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 8px 22px -14px rgba(0,0,0,.7)}
+  .legendbtn:hover{border-color:var(--kin)}
   .legendpop{position:fixed;right:12px;top:calc(140px + env(safe-area-inset-top));z-index:17;background:var(--panel-2);border:1px solid var(--panel-line);border-radius:12px;padding:11px 13px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font-size:11px;box-shadow:0 14px 34px -18px rgba(0,0,0,.8);opacity:0;transform:translateY(-6px);pointer-events:none;transition:.2s}
   .legendpop.on{opacity:1;transform:none;pointer-events:auto}
+  .legendpop .lt{font-size:9.5px;letter-spacing:.16em;color:var(--shikkui-dim);font-weight:800;margin-bottom:7px}
+  .legendpop .row{display:flex;align-items:center;gap:7px;margin:4px 0;color:var(--shikkui);letter-spacing:.03em;font-weight:600}
+  .legendpop .dot{width:9px;height:9px;border-radius:50%;flex:none;box-shadow:0 0 8px currentColor}
+  .legendpop .g{color:var(--green)} .legendpop .a{color:var(--kin)} .legendpop .r{color:var(--shu)}
+  .legendpop .note{margin-top:7px;font-size:9px;color:var(--shikkui-dim);letter-spacing:.02em;max-width:158px;line-height:1.4}
 
+  /* マーカー共通 */
+  .marker{position:absolute;left:0;top:0;transform:translate(-50%,-100%);cursor:pointer;text-align:center}
+  .marker .plabel{display:none;margin:4px auto 0;font-family:"Shippori Mincho",serif;font-weight:700;font-size:11.5px;color:#2c2720;background:rgba(255,255,255,.97);border:1px solid var(--panel-line);border-radius:999px;padding:2px 9px;white-space:nowrap;text-shadow:none;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+  .marker.sel .plabel,.marker.best .plabel{display:inline-block}
+  /* 名所＝四角の写真ピン */
+  .marker.spot{position:relative}
+  .marker.spot .ppin{width:48px;height:48px;border-radius:13px;overflow:hidden;position:relative;border:3px solid rgba(24,20,14,.92);background:#2a2218;box-shadow:0 8px 20px -8px rgba(0,0,0,.75);margin:0 auto;transition:transform .12s}
+  .marker.spot .ppin img{width:100%;height:100%;object-fit:cover;display:block}
+  .marker.spot .ppin .fb{position:absolute;inset:0;display:grid;place-items:center;font-size:20px;background:radial-gradient(circle at 40% 35%,rgba(235,180,89,.4),rgba(58,46,28,.92))}
+  .marker.spot .pdot{position:absolute;bottom:3px;right:3px;width:11px;height:11px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.65)}
+  .marker.spot .psn{position:absolute;top:-6px;left:-6px;font-size:14px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.8))}
+  .marker.spot.sel .ppin{transform:scale(1.1);border-color:#fff}
+  .marker.spot.best .ppin{border-color:var(--kin);box-shadow:0 0 0 3px rgba(217,138,31,.4),0 8px 20px -6px rgba(0,0,0,.55)}
+  .marker.spot.best::after{content:"おすすめ";position:absolute;left:50%;top:-16px;transform:translateX(-50%);font-size:8.5px;letter-spacing:.1em;color:var(--kin-soft);font-weight:800;white-space:nowrap;text-shadow:0 1px 4px rgba(0,0,0,.85)}
+  /* 店＝アイコンのみ */
+  .marker.shop .spin{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:16px;background:#ffffff;border:2px dashed rgba(56,150,116,.85);box-shadow:0 8px 18px -8px rgba(0,0,0,.7);margin:0 auto;position:relative;transition:transform .15s}
+  .marker.shop .scpn{position:absolute;top:-7px;right:-7px;font-size:13px}
+  .marker.shop.sig .spin{border-style:solid;border-color:rgba(140,200,178,1);box-shadow:0 0 0 2px rgba(140,200,178,.5),0 8px 18px -8px rgba(0,0,0,.7)}
+  .marker.shop.sel .spin{transform:scale(1.12);border-style:solid;border-color:#fff}
+  @keyframes sigpulse{0%,100%{box-shadow:0 0 0 2px var(--kin),0 0 8px rgba(217,138,31,.4)}50%{box-shadow:0 0 0 2px var(--kin),0 0 20px rgba(217,138,31,.78)}}
+
+  /* ボトム時間 */
+  /* 右端エッジ・ズームトリガーゾーン */
   .edgezone{position:fixed;top:118px;bottom:196px;right:0;width:48px;z-index:16;touch-action:none;display:flex;align-items:center;justify-content:flex-end}
   .edgezone .ez-grip{width:5px;height:72px;border-radius:99px;background:rgba(24,20,14,.16);margin-right:5px;transition:.18s;pointer-events:none}
   .edgezone.active .ez-grip{background:var(--kin);height:128px;width:6px}
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:22;padding:8px 18px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(255,255,255,.97),rgba(255,255,255,.7) 55%,transparent)}
+  .dock .handle{width:52px;height:6px;border-radius:99px;background:rgba(24,20,14,.28);margin:3px auto 12px;touch-action:none;cursor:ns-resize;position:relative}
+  .dock .handle::before{content:"＋";position:absolute;left:50%;top:-15px;transform:translateX(-50%);font-size:11px;font-weight:800;color:rgba(24,20,14,.35)}
+  .dock .handle::after{content:"−";position:absolute;left:50%;bottom:-15px;transform:translateX(-50%);font-size:12px;font-weight:800;color:rgba(24,20,14,.35)}
+  .dock .inner{max-width:760px;margin:0 auto}
+  .dock .ctrl{display:flex;align-items:center;gap:13px}
+  .playbtn{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--panel-line);background:#ffffff;color:#2c2720;cursor:pointer;display:grid;place-items:center;transition:.2s}
+  .playbtn:hover{border-color:var(--kin);color:var(--kin)}
+  .playbtn svg{width:18px;height:18px;fill:currentColor}
+  .track{flex:1;position:relative}
+  .track .sky{height:8px;border-radius:999px;overflow:hidden;border:1px solid var(--panel-line);background:linear-gradient(90deg,#0d1426 0%,#14203c 9%,#2a3a5e 19%,#c98a6a 24%,#d8c8a8 32%,#cfe0ee 50%,#f0b45e 69%,#e07746 75%,#3e4a70 80%,#14203c 88%,#0d1426 100%)}
+  .track input[type=range]{-webkit-appearance:none;appearance:none;position:absolute;top:50%;left:0;width:100%;transform:translateY(-50%);height:30px;background:transparent;margin:0;cursor:grab}
+  .track input[type=range]:active{cursor:grabbing}
+  .track input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#f4eddd;border:2px solid #1c1710;box-shadow:0 2px 8px rgba(0,0,0,.55)}
+  .track input[type=range]::-moz-range-thumb{width:20px;height:20px;border:2px solid #1c1710;border-radius:50%;background:#f4eddd;box-shadow:0 2px 8px rgba(0,0,0,.55)}
+  .ticks{display:flex;justify-content:space-between;margin-top:6px;font-size:9.5px;letter-spacing:.1em;color:var(--shikkui-dim);font-weight:700}
+  .weather{flex:none;display:flex;background:rgba(24,20,14,.08);border:1px solid var(--panel-line);border-radius:999px;padding:3px;gap:2px}
+  .weather button{border:none;background:transparent;color:var(--shikkui-dim);font-family:inherit;font-weight:700;font-size:11.5px;letter-spacing:.05em;padding:7px 12px;border-radius:999px;cursor:pointer;transition:.18s}
+  .weather button.on{background:#2c2720;color:#fff}
 
+  /* 詳細カード */
+  .sheet{position:fixed;left:0;right:0;bottom:0;z-index:30;transform:translateY(115%);transition:transform .42s cubic-bezier(.16,1,.3,1);padding:0 12px calc(116px + env(safe-area-inset-bottom));pointer-events:none}
+  .sheet.open{transform:translateY(0)}
+  .card{pointer-events:auto;max-width:540px;margin:0 auto;max-height:76vh;overflow:auto;background:linear-gradient(180deg,#ffffff,#f6f3ec);border:1px solid var(--panel-line);border-radius:22px 22px 16px 16px;box-shadow:0 -22px 60px -30px rgba(0,0,0,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .card .grab{width:38px;height:4px;border-radius:99px;background:var(--panel-line);margin:9px auto 4px}
+  .card .body{padding:4px 20px 22px}
+  .card .top{display:flex;gap:16px;align-items:center;position:relative}
+  .card .ring{flex:none;width:88px;height:88px;position:relative}
+  .card .ring svg{transform:rotate(-90deg)}
+  .card .ring .val{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+  .card .ring .num{font-family:"Shippori Mincho",serif;font-weight:800;font-size:27px;line-height:1;color:var(--kin-soft);font-variant-numeric:tabular-nums}
+  .card .ring .lab{font-size:8.5px;letter-spacing:.14em;color:var(--shikkui-dim);margin-top:2px;font-weight:800}
+  .card .info{flex:1;min-width:0}
+  .card .info .x{position:absolute;top:-2px;right:0;width:30px;height:30px;border:none;border-radius:50%;background:rgba(24,20,14,.1);color:var(--shikkui-dim);cursor:pointer;font-size:15px;line-height:1}
+  .card .info h3{font-family:"Shippori Mincho",serif;font-weight:700;font-size:22px;letter-spacing:.03em;color:var(--shikkui);padding-right:32px}
+  .card .info .sub{font-size:12px;color:var(--shikkui-dim);margin-top:3px;letter-spacing:.03em;line-height:1.45}
+  .card .info .sdesc{font-size:12px;color:var(--kin-soft);margin-top:4px;font-weight:700}
+  .card .chips{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .card .chip{font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:999px;border:1px solid var(--panel-line);color:var(--shikkui);background:rgba(24,20,14,.07)}
+  .card .chip.cat{color:var(--kin-soft);border-color:rgba(235,180,89,.35)}
+
+  .hoursrow{margin-top:14px;display:flex;align-items:center;gap:10px;background:rgba(24,20,14,.05);border:1px solid var(--panel-line);border-radius:12px;padding:10px 13px}
+  .hoursrow .badge{flex:none;font-size:11px;font-weight:800;letter-spacing:.04em;padding:4px 10px;border-radius:999px;border:1px solid currentColor}
+  .hoursrow .ht{font-size:12.5px;color:var(--shikkui);font-weight:700}
+  .hoursrow .hn{font-size:10.5px;color:var(--shikkui-dim);margin-top:1px}
+
+  .sectitle{font-size:10px;letter-spacing:.18em;color:var(--kin-soft);font-weight:800;margin:16px 0 9px;display:flex;align-items:center;gap:8px}
+  .sectitle .ln{flex:1;height:1px;background:var(--panel-line)}
+
+  .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:9px 16px}
+  .bd .l{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.05em;color:var(--shikkui-dim);font-weight:700;margin-bottom:4px}
+  .bd .l .v{font-weight:800;color:var(--shikkui)}
+  .bd .bar{height:6px;border-radius:99px;background:rgba(24,20,14,.12);overflow:hidden}
+  .bd .fill{height:100%;border-radius:99px;transition:width .35s,background .35s}
+
+  .best{margin-top:13px;font-size:12.5px;line-height:1.55;color:var(--shikkui);background:rgba(217,138,31,.14);border:1px solid rgba(217,138,31,.3);border-radius:11px;padding:9px 12px}
+  .best b{color:var(--kin-soft);font-weight:800}
+
+  .nextbox{margin-top:11px;background:linear-gradient(120deg,rgba(22,34,63,.07),rgba(24,20,14,.03));border:1px solid var(--panel-line);border-radius:13px;padding:12px 13px;display:flex;align-items:center;gap:12px}
+  .nextbox .ni{flex:1;min-width:0}
+  .nextbox .nk{font-size:9.5px;letter-spacing:.16em;color:var(--kin-soft);font-weight:800;margin-bottom:4px}
+  .nextbox .nn{font-family:"Shippori Mincho",serif;font-weight:700;font-size:16px;color:var(--shikkui);line-height:1.3}
+  .nextbox .nw{font-size:11.5px;color:var(--shikkui-dim);margin-top:3px;line-height:1.45}
+  .nextbox .go{flex:none;border:1px solid var(--kin);background:rgba(217,138,31,.16);color:var(--kin-soft);font-family:inherit;font-weight:800;font-size:12px;padding:10px 14px;border-radius:11px;cursor:pointer;white-space:nowrap}
+  .nextbox .go:hover{background:var(--kin);color:#fff}
+
+  .photos .padd{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+  .photos .cambtn{border:1px solid var(--kin);background:rgba(217,138,31,.16);color:var(--kin-soft);font-family:inherit;font-weight:800;font-size:11.5px;padding:7px 12px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .photos .cambtn:hover{background:var(--kin);color:#fff}
+  .photos .strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  .photos .strip::-webkit-scrollbar{height:5px}
+  .photos .strip::-webkit-scrollbar-thumb{background:var(--panel-line);border-radius:9px}
+  .photos .ph{flex:none;width:96px;height:120px;border-radius:11px;overflow:hidden;position:relative;border:1px solid var(--panel-line);cursor:pointer;background:#1c1710}
+  .photos .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .photos .ph .tt{position:absolute;left:0;right:0;bottom:0;font-size:9px;font-weight:700;letter-spacing:.03em;color:#fff;padding:9px 6px 4px;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent)}
+  .photos .empty{width:100%;text-align:center;font-size:12px;color:var(--shikkui-dim);border:1px dashed var(--panel-line);border-radius:12px;padding:20px 12px;line-height:1.5}
+
+  .advice ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .advice li{display:flex;gap:9px;font-size:12.5px;line-height:1.55}
+  .advice li .k{flex:none;font-family:"Shippori Mincho",serif;font-weight:700;color:var(--kin-soft);font-size:11.5px;width:82px}
+  .advice li .d{color:var(--shikkui);opacity:.92}
+  .advice .disc{margin-top:10px;font-size:9px;color:var(--shikkui-dim);letter-spacing:.02em;line-height:1.5}
+
+  .rank{position:fixed;top:0;right:0;bottom:0;width:min(348px,88vw);z-index:32;transform:translateX(102%);transition:transform .4s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#ffffff,#f6f3ec);border-left:1px solid var(--panel-line);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:-22px 0 60px -30px rgba(0,0,0,.85);display:flex;flex-direction:column}
+  .rank.open{transform:translateX(0)}
+  .rank .rh{padding:calc(18px + env(safe-area-inset-top)) 18px 13px;border-bottom:1px solid var(--panel-line);display:flex;align-items:flex-start;justify-content:space-between}
+  .rank .rh h3{font-family:"Shippori Mincho",serif;font-weight:800;font-size:18px;letter-spacing:.05em;color:var(--shikkui)}
+  .rank .rh .s{font-size:10.5px;letter-spacing:.06em;color:var(--shikkui-dim);margin-top:4px}
+  .rank .rx{border:none;background:rgba(24,20,14,.1);color:var(--shikkui-dim);width:30px;height:30px;border-radius:50%;font-size:15px;cursor:pointer;flex:none}
+  .rank .rlist{flex:1;overflow:auto;padding:11px 14px calc(18px + env(safe-area-inset-bottom))}
+  .rank .ri{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--panel-line);border-radius:13px;margin-bottom:8px;cursor:pointer;transition:.15s;background:rgba(24,20,14,.04)}
+  .rank .ri:hover{border-color:var(--kin);background:rgba(217,138,31,.1)}
+  .rank .ri .no{font-family:"Shippori Mincho",serif;font-weight:800;font-size:19px;color:var(--kin-soft);width:22px;text-align:center;flex:none}
+  .rank .ri .mid{flex:1;min-width:0}
+  .rank .ri .nm{font-weight:700;font-size:14px;color:var(--shikkui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rank .ri .meta{font-size:10.5px;color:var(--shikkui-dim);margin-top:2px}
+  .rank .ri .sc{flex:none;text-align:right}
+  .rank .ri .sc .n{font-family:"Shippori Mincho",serif;font-weight:800;font-size:20px;color:var(--shikkui);line-height:1}
+  .rank .ri .sc .u{font-size:8px;letter-spacing:.12em;color:var(--shikkui-dim)}
+  .scrim{position:fixed;inset:0;z-index:31;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .35s}
+  .scrim.on{opacity:1;pointer-events:auto}
+
+  .pview{position:fixed;inset:0;z-index:40;background:rgba(5,4,3,.94);display:none;align-items:center;justify-content:center;padding:24px}
+  .pview.on{display:flex}
+  .pview img{max-width:100%;max-height:82vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+  .pview .pv-x{position:absolute;top:calc(16px + env(safe-area-inset-top));right:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--panel-line);background:rgba(24,20,15,.8);color:var(--shikkui);font-size:17px;cursor:pointer}
+  .pview .pv-cap{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom));left:0;right:0;text-align:center;font-size:12px;color:var(--shikkui-dim);letter-spacing:.04em}
+
+  .hint{position:fixed;left:50%;bottom:calc(200px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:12;font-size:11px;letter-spacing:.08em;color:var(--shikkui);background:var(--panel);border:1px solid var(--panel-line);border-radius:999px;padding:7px 15px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:opacity .5s;pointer-events:none;box-shadow:0 10px 28px -14px rgba(0,0,0,.7)}
+  .hint.gone{opacity:0}
   .loader{position:fixed;inset:0;z-index:50;display:grid;place-content:center;background:#f3f0e8;transition:opacity .6s;text-align:center}
   .loader.gone{opacity:0;pointer-events:none}
   .loader .lm{font-family:"Shippori Mincho",serif;font-weight:800;font-size:26px;letter-spacing:.2em;color:var(--shikkui)}
@@ -106,7 +261,129 @@
   <div class="note">丸写真＝名所／絵文字＝店。タップで詳細。</div>
 </div>
 
+<div class="hint" id="hint">アイコンをタップで詳細 ・ 画面右端を上下スワイプで片手ズーム</div>
+
+<div class="sheet" id="sheet">
+  <div class="card">
+    <div class="grab"></div>
+    <div class="body">
+      <div class="top">
+        <div class="ring">
+          <svg width="88" height="88" viewBox="0 0 88 88">
+            <circle cx="44" cy="44" r="38" fill="none" stroke="rgba(24,20,14,.13)" stroke-width="6.5"/>
+            <circle id="ringFill" cx="44" cy="44" r="38" fill="none" stroke="url(#kg)" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="238.7" stroke-dashoffset="238.7"/>
+            <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EBB459"/><stop offset="1" stop-color="#D98A1F"/></linearGradient></defs>
+          </svg>
+          <div class="val"><div class="num" id="ringNum">0</div><div class="lab">ときめき度</div></div>
+        </div>
+        <div class="info">
+          <button class="x" id="cardX">✕</button>
+          <h3 id="cardName">—</h3>
+          <div class="sub" id="cardSub">—</div>
+          <div class="sdesc" id="cardSdesc">—</div>
+          <div class="chips" id="cardChips"></div>
+        </div>
+      </div>
+      <div class="hoursrow" id="hoursRow">
+        <div class="badge" id="hoursBadge">—</div>
+        <div><div class="ht" id="hoursText">—</div><div class="hn" id="hoursNote"></div></div>
+      </div>
+      <div class="sectitle"><span>スコア内訳</span><span class="ln"></span></div>
+      <div class="breakdown" id="breakdown"></div>
+      <div class="best" id="cardBest">—</div>
+      <div class="nextbox" id="nextBox">
+        <div class="ni">
+          <div class="nk">次どこ行く？</div>
+          <div class="nn" id="nextName">—</div>
+          <div class="nw" id="nextWhy">—</div>
+        </div>
+        <button class="go" id="nextGo">向かう →</button>
+      </div>
+      <div class="photos">
+        <div class="sectitle"><span>リアルタイム写真</span><span class="ln"></span></div>
+        <div class="padd">
+          <div style="font-size:11px;color:var(--shikkui-dim)" id="photoCount">みんなの投稿 0枚</div>
+          <button class="cambtn" id="camBtn">📷 写真を追加</button>
+        </div>
+        <div class="strip" id="photoStrip"></div>
+      </div>
+      <div class="advice">
+        <div class="sectitle"><span>撮影アドバイス</span><span class="ln"></span></div>
+        <ul id="adviceList"></ul>
+        <div class="disc">※アドバイスは条件（光の向き・季節・天候・時刻）からの自動生成、写真は本端末セッション内の保持です（リロードで消去）。本番アプリではAI生成＋投稿DBに置き換わります。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="shopSheet">
+  <div class="card">
+    <div class="grab"></div>
+    <div class="body">
+      <div class="top">
+        <div class="gbig" id="shopIcon">☕</div>
+        <div class="info">
+          <button class="x" id="shopX">✕</button>
+          <h3 id="shopName">—</h3>
+          <div class="sub" id="shopGenre">—</div>
+          <div class="chips" id="shopChips"></div>
+        </div>
+      </div>
+      <div class="hoursrow">
+        <div class="badge" id="shopHoursBadge">—</div>
+        <div><div class="ht" id="shopHoursText">—</div><div class="hn" id="shopVacText"></div></div>
+      </div>
+      <div class="sectitle"><span>空き状況（推定）</span><span class="ln"></span></div>
+      <div class="bd"><div class="l"><span>混雑</span><span class="v" id="shopBusyV">—</span></div><div class="bar" style="height:8px"><div class="fill" id="shopBusyFill" style="height:100%;border-radius:99px"></div></div></div>
+      <div id="couponWrap"></div>
+      <button class="ownerbtn" id="ownerBtn">🏪 店長モード：いま空いてます（送客ON）</button>
+      <div class="disc">※「提携店」の体のモックです。空き信号は自動（空いてる時間帯）＋手動（店長モード）で点灯し、クーポン利用で送客手数料が発生します。実在店名は例示で、実際の提携・許可を示すものではありません。</div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none">
+<div class="pview" id="pview"><button class="pv-x" id="pvX">✕</button><img id="pvImg" src="" alt=""><div class="pv-cap" id="pvCap"></div></div>
+
+<div class="scrim" id="scrim"></div>
+<div class="rank" id="rank">
+  <div class="rh">
+    <div><h3>今日のベストショット</h3><div class="s" id="rankSub">—</div></div>
+    <button class="rx" id="rankX">✕</button>
+  </div>
+  <div class="sendbar">送客実績 <b id="sendCount">0</b> 件 ・ 手数料 <b id="sendYen">¥0</b></div>
+  <div class="rlist" id="rankList"></div>
+</div>
+
 <div class="edgezone" id="edgeZone"><div class="ez-grip"></div></div>
+
+<div class="dock" id="dock">
+  <div class="inner">
+    <button class="recopill" id="recoPill">
+      <span class="rp-eye" id="recoEyebrow">いま撮るなら</span>
+      <span class="rp-name" id="recoName">—</span>
+      <span class="rp-arrow">▸</span>
+    </button>
+    <div class="seasonrow"><span class="dl">季節</span><div class="seg season" id="seasonSeg"></div></div>
+    <div class="dockhead">
+      <div class="dclock"><span class="t" id="clockT">12:00</span><span class="phase"><span id="phaseIco">☀︎</span><span id="phaseT">日中</span></span></div>
+      <div class="weather">
+        <button id="wSun" class="on">晴れ</button>
+        <button id="wCloud">曇り</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <button class="playbtn" id="playBtn" aria-label="再生"><svg id="playIco" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="track">
+        <div class="sky"></div>
+        <input type="range" id="timeRange" min="0" max="1439" value="720" step="1" aria-label="時刻">
+        <div class="ticks"><span>0時</span><span>6時</span><span>12時</span><span>18時</span><span>24時</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
@@ -114,10 +391,12 @@ function boot(){
   const map = L.map('map',{zoomControl:false,attributionControl:true,minZoom:14,maxZoom:18,zoomSnap:0}).setView([35.9225, 139.4855], 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-  /* === 変更箇所: edgeZone のスワイプ感度とレスポンスを改善 === */
   const edge = document.getElementById('edgeZone');
   const mapEl = document.getElementById('map');
-  const EGAIN = 1.0; // 感度を向上（2.2から1.0へ）
+  
+  /* === ズーム感度改善ロジック === */
+  const EGAIN = 1.0; 
+  const ZOOM_DELAY = 40; 
   let eDragging=false,eStartY=0,eStartZoom=0,ePreviewScale=1;
 
   edge.addEventListener('pointerdown',e=>{
@@ -132,7 +411,6 @@ function boot(){
   edge.addEventListener('pointermove',e=>{
     if(!eDragging)return;
     const dy=eStartY-e.clientY;
-    // 感度向上のためEGAINを反映
     const dz=Math.max(map.getMinZoom()-eStartZoom,Math.min(map.getMaxZoom()-eStartZoom,(dy/window.innerHeight)*EGAIN));
     ePreviewScale=Math.pow(2,dz);
     mapEl.style.transform='scale('+ePreviewScale+')';
@@ -146,8 +424,7 @@ function boot(){
     mapEl.style.transform='scale(1)';
     map.dragging.enable();
     edge.classList.remove('active');
-    // レスポンス向上のため40msに短縮
-    setTimeout(()=>{ mapEl.style.transition=''; map.setZoom(targetZoom,{animate:true}); },40);
+    setTimeout(()=>{ mapEl.style.transition=''; map.setZoom(targetZoom,{animate:true}); }, ZOOM_DELAY);
   }
   edge.addEventListener('pointerup',eEnd);
   edge.addEventListener('pointercancel',eEnd);
